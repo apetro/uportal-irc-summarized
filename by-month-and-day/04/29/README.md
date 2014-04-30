@@ -15,8 +15,7 @@ Discussion of what to name the new permission to publish a portlet type (takes a
 
 Discussion without resolution of what effect if any this permission ought to have on users managing existing portlet publications (`MANAGE`).  Can one edit a publication of a portlet that uses a portlet type that you're not permitted to select de novo?  If yes, this creates a back door to circumvent what was probably the intent of denying someone `SELECT_PORTLET_TYPE`, since the user can re-configure the instance of the type that he can manage to do whatever nefarious thing was being blocked by denying access to that portlet type.  If no, then one might have `MANAGE` or `MANAGE_*` on a category or portlet that one is not able to actually manage because of its type, and so the `MANAGE` permission in those instances becomes confusing for its lack of effect.  (Reconciling this is backlogged as [UP-4079][]).
 
-This [changeset][changeset broke initdb] broke `ant clean initportal` by introducing a dependency of the portlet type permission target on the portlet types, but the portlet types were not reliably loaded at the time of initializing the permission target.  The change was [reverted][reverted portlet type as permission target
-] to un-break the build and then re-introduced with less eager initialization.
+This [changeset][changeset broke initdb] broke `ant clean initportal` by introducing a dependency of the portlet type permission target on the portlet types, but the portlet types were not reliably loaded at the time of initializing the permission target.  The change was [reverted][reverted portlet type as permission target] to un-break the build and then re-introduced with less eager initialization.
 
 
 Preferring CDNs over ResourceServer
